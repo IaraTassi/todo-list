@@ -11,6 +11,18 @@ export default function App() {
     setTodos([...todos, todo]);
   };
 
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    );
+  };
+
   return (
     <main className="task-manager">
       {/* <Welcome /> */}
@@ -20,7 +32,11 @@ export default function App() {
 
         <TodoForm addTodo={addTodo} />
 
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          removeTodo={removeTodo}
+          toggleTodo={toggleTodo}
+        />
       </div>
     </main>
   );
