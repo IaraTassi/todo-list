@@ -3,6 +3,12 @@ import TodoForm from "../components/TodoForm/TodoForm";
 import TodoList from "../components/TodoList/TodoList";
 import TodoFilter from "../components/TodoFilter/TodoFilter";
 import "../App.css";
+import {
+  addTodo,
+  removeTodo,
+  toggleTodo,
+  filterTodos,
+} from "../uttils/todoUtils";
 
 export default function TasksPage() {
   const [todos, setTodos] = useState(() => {
@@ -16,26 +22,19 @@ export default function TasksPage() {
     localStorage.setItem("all", JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (todo) => {
-    setTodos([...todos, todo]);
+  const handleAddTodo = (todo) => {
+    setTodos(addTodo(todos, todo));
   };
 
-  const removeTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const handleRemoveTodo = (id) => {
+    setTodos(removeTodo(todos, id));
   };
 
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
-      ),
-    );
+  const handleToggleTodo = (id) => {
+    setTodos(toggleTodo(todos, id));
   };
 
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "all") return true;
-    return todo.priority === filter;
-  });
+  const filteredTodos = filterTodos(todos, filter);
 
   return (
     <main className="task-manager">
@@ -45,15 +44,15 @@ export default function TasksPage() {
 
       <div className="task-container">
         <section className="task-controls">
-          <TodoForm addTodo={addTodo} />
+          <TodoForm addTodo={handleAddTodo} />
           <TodoFilter filter={filter} setFilter={setFilter} />
         </section>
 
         <section className="task-list">
           <TodoList
             todos={filteredTodos}
-            removeTodo={removeTodo}
-            toggleTodo={toggleTodo}
+            removeTodo={handleRemoveTodo}
+            toggleTodo={handleToggleTodo}
           />
         </section>
       </div>
