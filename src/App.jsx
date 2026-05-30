@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 // import Welcome from "./components/Welcome/Welcome";
 import TodoForm from "./components/TodoForm/TodoForm";
@@ -6,8 +6,16 @@ import TodoList from "./components/TodoList/TodoList";
 import TodoFilter from "./components/TodoFilter/TodoFilter";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("all");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
   const [filter, setFilter] = useState("all");
+
+    useEffect(() => {
+    localStorage.setItem("all", JSON.stringify(todos));
+  }, [todos]); 
 
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
