@@ -3,7 +3,7 @@ import "./TodoForm.css";
 
 export default function TodoForm({ addTodo }) {
   const [text, setText] = useState("");
-  const [priority, setPriority] = useState("Baixa");
+  const [priority, setPriority] = useState("low");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,9 +30,9 @@ export default function TodoForm({ addTodo }) {
       />
 
       <select value={priority} onChange={(e) => setPriority(e.target.value)}>
-        <option>Baixa</option>
-        <option>Média</option>
-        <option>Alta</option>
+        <option value="low">Baixa</option>
+        <option value="medium">Média</option>
+        <option value="high">Alta</option>
       </select>
 
       <button type="submit">Adicionar</button>
