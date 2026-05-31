@@ -9,6 +9,7 @@ import {
   toggleTodo,
   filterTodos,
 } from "../uttils/todoUtils";
+import "./TasksPage.css";
 
 export default function TasksPage() {
   const [todos, setTodos] = useState(() => {

@@ -1,0 +1,9 @@
+:root {
+  --color-background: #222222;
+  --color-background-deep: #1b1b1b;
+  --color-surface: #333333;
+  --color-accent: #ff7f50;
+  --color-text: #ffffff;
+  --color-text-secondary: #e6e3e3;
+  --shadow-accent: rgba(250, 73, 4, 0.1);
+}
