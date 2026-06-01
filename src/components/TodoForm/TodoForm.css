@@ -75,7 +75,14 @@ input:-webkit-autofill:active {
   transition: background-color 9999s ease-in-out 0s;
 }
 
-.task-list {
-  width: 740px;
-  height: 120px;
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-list {
+    min-height: 140px;
+    padding: 16px;
+  }
 }

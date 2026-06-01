@@ -117,3 +117,19 @@ header {
 .add-button:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+  .task-title {
+    padding-left: 16px;
+  }
+
+  .task-controls {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .control-card {
+    padding-left: 16px;
+  }
+}
