@@ -33,3 +33,13 @@ body {
   font-size: 1.25rem;
   line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+  .welcome,
+  .welcome-title,
+  .welcome-description {
+    display: flex;
+    text-align: center;
+    margin: 16px;
+  }
+}
