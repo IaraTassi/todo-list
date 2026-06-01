@@ -74,3 +74,8 @@ input:-webkit-autofill:active {
   caret-color: var(--color-text);
   transition: background-color 9999s ease-in-out 0s;
 }
+
+.task-list {
+  width: 740px;
+  height: 120px;
+}

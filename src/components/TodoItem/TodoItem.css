@@ -1,0 +1,70 @@
+.card {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 64px;
+  padding: 10px 12px;
+  margin-top: 8px;
+
+  border-radius: 6px;
+  border: 1px solid var(--shadow-accent);
+
+  background: var(--color-surface);
+}
+
+.todo-text {
+  flex: 1;
+  color: var(--color-text);
+}
+
+.done .todo-text {
+  text-decoration: line-through;
+  background-color: var(--color-surface);
+  opacity: 0.6;
+}
+
+.todo-check {
+  color: var(--color-accent);
+
+  background: none;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.remove-button {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-button::before,
+.remove-button::after {
+  content: "";
+  position: absolute;
+
+  width: 12px;
+  height: 1.5px;
+
+  background: var(--color-accent);
+
+  top: 50%;
+  left: 50%;
+}
+
+.remove-button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.remove-button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
