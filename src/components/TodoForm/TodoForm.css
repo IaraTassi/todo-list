@@ -1,7 +1,76 @@
 .form {
-  max-width: 400px;
-  background-color: #333333;
-  border-radius: 4px;
-  padding: 1rem;
-  box-shadow: 0 1px 8px rgba(250, 73, 4, 0.1);
+  display: flex;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+#task-input,
+#task-priority,
+#priority-filter {
+  padding: 10px 12px;
+
+  border-radius: 6px;
+  border: 1px solid var(--shadow-accent);
+
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+#task-input {
+  width: 330px;
+  cursor: text;
+}
+
+#task-priority,
+#priority-filter {
+  width: 160px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='12' width='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+#task-input:hover,
+#task-priority:hover,
+#priority-filter:hover {
+  border-color: rgba(250, 73, 4, 0.25);
+}
+
+#task-input:focus,
+#task-priority:focus,
+#priority-filter:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--shadow-accent);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface) inset !important;
+  -webkit-text-fill-color: var(--color-text) !important;
+  caret-color: var(--color-text);
+  transition: background-color 9999s ease-in-out 0s;
 }

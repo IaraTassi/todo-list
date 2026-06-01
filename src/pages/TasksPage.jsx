@@ -18,6 +18,8 @@ export default function TasksPage() {
   });
 
   const [filter, setFilter] = useState("all");
+  const [text, setText] = useState("");
+  const [priority, setPriority] = useState("");
 
   useEffect(() => {
     localStorage.setItem("all", JSON.stringify(todos));
@@ -39,14 +41,41 @@ export default function TasksPage() {
 
   return (
     <main className="task-manager">
-      <header>
-        <h1 className="task-title">Gerenciador de Tarefas</h1>
+      <header className="task-title">
+        <h1>Gerenciador de Tarefas</h1>
       </header>
 
       <div className="task-container">
         <section className="task-controls">
-          <TodoForm addTodo={handleAddTodo} />
-          <TodoFilter filter={filter} setFilter={setFilter} />
+          <div className="control-card">
+            <TodoForm
+              text={text}
+              setText={setText}
+              priority={priority}
+              setPriority={setPriority}
+              addTodo={handleAddTodo}
+            />
+          </div>
+
+          <div className="control-card">
+            <TodoFilter filter={filter} setFilter={setFilter} />
+          </div>
+
+          <div className="control-card">
+            <button
+              className="add-button"
+              onClick={() =>
+                handleAddTodo({
+                  id: Date.now(),
+                  text,
+                  priority,
+                  completed: false,
+                })
+              }
+            >
+              +
+            </button>
+          </div>
         </section>
 
         <section className="task-list">
